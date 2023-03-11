@@ -8,11 +8,10 @@ body {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    background-color: #0e0e0e;
+    background-color: #8e908e;
     color: #fff;
 }
 .container {
-    
     max-width: 1140px;
     width: 100%;
     margin: 0px auto;
@@ -35,25 +34,64 @@ body {
     row-gap: 15px;
     align-items: center;
 }
+.meme-item-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: center; 
+}
 .meme-title {
     display: block;
     cursor: pointer;
 }
+
 .meme-input {
     appearance: none;
-    position: absolute;
+    position: static;
     width: 0;
     height: 0;
 }
-.meme-input:checked + .meme-img {
-    display: block;
+.meme-input:checked ~ .meme-img {
+    max-height: 100%;
+    opacity: 1;
+    transform:scaleY(1);   
 }
 .meme-img {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: max-height 1s linear, opacity 1s ease-out, transform 1s linear;
     object-fit: cover;
     max-width: 40%;
-    
 }
+.drop-down-logo {
+    width: 15px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+ }
+  
+.meme-input:checked ~ .meme-title .drop-down-logo {
+    transform: rotate(180deg);
+}
+.meme-item:hover .meme-title {
+    color: #ff6600;
+    transition: color 0.3s ease-in-out;
+}
+.meme-item .drop-down-logo {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.meme-wrapper:hover .drop-down-logo {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+.meme-input:checked, .meme-item-box:hover ~ .meme-img {
+    max-height: 100%;
+    opacity: 1;
+    transform:scaleY(1);   
+}
+
 
 
 
