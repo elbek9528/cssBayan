@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'CR';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    background-color: #8e908e;
+    color: #fff;
+}
+.container {
+    max-width: 1140px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0 15px;
+}
+.header-box {
+    margin: 15px auto;
+    width: 100%;
+}
+.meme-box {
+    max-width: 100%;
+    margin: 15px auto;
+}
+.meme-item {
+    border: 2px solid #FFd700;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: center;
+    cursor: pointer;
+}
+.meme-item-box {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: center; 
+}
+.meme-title {
+    display: block;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+.meme-input {
+    appearance: none;
+    position: static;
+    width: 0;
+    height: 0;
+}
+.meme-input:checked ~ .meme-img {
+    max-height: 100%;
+    opacity: 1;
+    transform:scaleY(1);   
+}
+.meme-img {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: scaleY(0);
+    transition: max-height 1s linear, opacity 1s ease-out, transform 1s linear;
+    object-fit: cover;
+    max-width: 40%;
+}
+.drop-down-logo {
+    width: 15px;
+}
+.meme-input:checked .meme-title {
+    transform: rotate(180deg);
+    transition: all 0.3s linear;
+}
+.meme-item .drop-down-logo {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 900px) {
+    .meme-item:hover .meme-title {
+        color: #ff6600;
+        transition: color 0.3s ease-in-out;
+    }
+    .meme-input:hover ~ .meme-img {
+        max-height: 100%;
+        opacity: 1;
+        transform:scaleY(1);   
+    }
+    .meme-wrapper:hover .drop-down-logo {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 200; 
+    }
+    .meme-item .drop-down-logo {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    .meme-input:checked ~ .drop-down-logo {
+        transform: rotate(180deg);
+        transition: all 0.3s linear;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    body {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400; 
+    }
+    .meme-item .drop-down-logo {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+} 
+
+
+
+
+
+
