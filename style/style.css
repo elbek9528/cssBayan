@@ -33,6 +33,7 @@ body {
     flex-direction: column;
     row-gap: 15px;
     align-items: center;
+    cursor: pointer;
 }
 .meme-item-box {
     display: flex;
@@ -43,8 +44,10 @@ body {
 .meme-title {
     display: block;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
 }
-
 .meme-input {
     appearance: none;
     position: static;
@@ -67,30 +70,60 @@ body {
 }
 .drop-down-logo {
     width: 15px;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-in-out;
- }
-  
-.meme-input:checked ~ .meme-title .drop-down-logo {
-    transform: rotate(180deg);
 }
-.meme-item:hover .meme-title {
-    color: #ff6600;
-    transition: color 0.3s ease-in-out;
+.meme-input:checked .meme-title {
+    transform: rotate(180deg);
+    transition: all 0.3s linear;
 }
 .meme-item .drop-down-logo {
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
-.meme-wrapper:hover .drop-down-logo {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+
+@media screen and (min-width: 900px) {
+    .meme-item:hover .meme-title {
+        color: #ff6600;
+        transition: color 0.3s ease-in-out;
+    }
+    .meme-input:hover ~ .meme-img {
+        max-height: 100%;
+        opacity: 1;
+        transform:scaleY(1);   
+    }
+    .meme-wrapper:hover .drop-down-logo {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
 }
-.meme-input:checked, .meme-item-box:hover ~ .meme-img {
-    max-height: 100%;
-    opacity: 1;
-    transform:scaleY(1);   
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 200; 
+    }
+    .meme-item .drop-down-logo {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    .meme-input:checked ~ .drop-down-logo {
+        transform: rotate(180deg);
+        transition: all 0.3s linear;
+    }
 }
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    body {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400; 
+    }
+    .meme-item .drop-down-logo {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+} 
+
+
 
 
 
